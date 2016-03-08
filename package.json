@@ -1,0 +1,24 @@
+{
+  "name": "ontheroad",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "mongodb": "^2.1.7",
+    "mongoose": "^4.4.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nzarifian/best-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nzarifian/best-blog/issues"
+  },
+  "homepage": "https://github.com/nzarifian/best-blog#readme"
+}
