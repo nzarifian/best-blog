@@ -1,0 +1,18 @@
+<!-- admin dashboard, click to view posts, click to edit/delete posts -->
+
+
+<div class="top">
+<div class="align-shopmain row title">
+
+	<h1>...on the road</h1>
+
+</div>
+
+		<ul>
+			<li><a ui-sref="main">home</a></li>
+			<li><a ui-sref="admin.posts">posts</a></li>
+			<li><a ng-click="ctrl.logout()">log out</a></li>
+		</ul>
+
+		<div ui-view=""></div>
+</div>

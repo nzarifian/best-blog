@@ -1,0 +1,43 @@
+<!-- homepage with header, sliding jumbotron, all blog posts -->
+
+<div class="jumbotron"></div>
+
+
+
+<h1>HELLO WORLD</h1>
+
+
+<form name="add-entry">
+  Title:<br>
+  <input type="text" name="title" ng-model="ctrl.title" required><br>
+  Image:<br>
+  <input type="text" name="image" ng-model="ctrl.image" required><br>
+  Content:<br>
+  <input type="text" name="content" ng-model="ctrl.content" required><br>
+  author:<br>
+  <input type="text" name="author" ng-model="ctrl.author" required><br>
+  tags:<br>
+  <input type="text" name="tags" ng-model="ctrl.tags" required><br>
+</form>
+<button type="submit" ng-click="ctrl.addEntry()">Submit</button>
+
+<section>
+	<h2>List of All Posts</h2>
+	<div class="all entries" ng-repeat="entry in ctrl.blogPosts">
+		<a ng-click="ctrl.toBlog(entry._id)">
+
+			
+			{{entry.title}}<br>
+		</a>
+		{{entry.content}}<br>
+		{{entry.author}}<br>
+		{{entry.tags}}<br>
+		<!-- <img ng-src="{{entry.image}}"> -->
+		{{entry.created_at | date : format : short}}
+
+		<button type="submit" ng-repeat="{{entry.id}}" ng-click="ctrl.delete()">Delete</button>
+	</div>
+</section>
+
+
+

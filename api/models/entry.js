@@ -5,7 +5,10 @@ var entrySchema = new Schema({
 	title: String,
 	content: String,
 	author: String,
+	image: String,
+	tags: String,
 	created_at: Date
+	
 
 });
 
