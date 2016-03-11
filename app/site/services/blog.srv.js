@@ -5,7 +5,7 @@ function BlogService($state,api){
 	this.api = api;
 	this.$state = $state;
 	this.blogPosts = {};
-	this.blog = [];
+	this.blog = {};
 }
 
 BlogService.prototype.addEntry = function(entry){
@@ -26,14 +26,14 @@ BlogService.prototype.getEntries = function() {
 	});
 }
 
-// BlogService.prototype.getOne = function(id){
-// 	var _this = this; 
-// 	return this.api.request('/api/main/'+id,{},'GET')
-// 	.then(function(res){
-// 		console.log(res);
-// 		return res.data;
-// 	})
-// }
+BlogService.prototype.getOne = function(id){
+	var _this = this; 
+	return this.api.request('/entries/'+id,{},'GET')
+	.then(function(res){
+		console.log(res);
+		return res.data[0];
+	})
+}
 
 BlogService.prototype.updateEntry = function(entry, id){
 	var _this = this;
@@ -41,8 +41,8 @@ BlogService.prototype.updateEntry = function(entry, id){
 	.then(function(res){
 		console.log(res);
 		if(res.status === 200){
-			_this.updateList(entry, id);
-			_this.$state.go('main');
+			// _this.updateList(entry, id);
+			_this.$state.go('main.home');
 		}
 	})
 }

@@ -6,22 +6,30 @@
 	<h3>edit entry</h3>
 
 <br><br>
+		<div class="form-group">
+            <label for="id">title</label>
+            <input type="text" class="form-control" name="title" ng-model="ctrl.blog.title">
+        </div>
+        <div class="form-group">
+            <label for="name">author</label>
+            <input type="text" class="form-control" name="author" ng-model="ctrl.blog.author">
+        <div class="form-group">
+            <label for="email">image</label>
+            <input type="text" class="form-control" name="image" ng-model="ctrl.blog.image">
+          </div>
+          <div class="form-group">
+            <label for="name">content</label>
+            <input type="text" class="form-control" name="content" ng-model="ctrl.blog.content">
+        </div>
+          <div class="form-group">
+            <label for="name">tags</label>
+            <input type="text" class="form-control" name="tags" ng-model="ctrl.blog.tags">
+        </div>
 
-	<article class="edit-frm">
-	Title:<br>
-  <input type="text" name="title" ng-model="ctrl.title" required><br>
-  Image:<br>
-  <input type="text" name="image" ng-model="ctrl.image" required><br>
-  Content:<br>
-  <input type="text" name="content" ng-model="ctrl.content" required><br>
-  author:<br>
-  <input type="text" name="author" ng-model="ctrl.author" required><br>
-  tags:<br>
-  <input type="text" name="tags" ng-model="ctrl.tags" required><br>
-</form>
+
 			<br><br>
 		<div>
-			<button class="ourButton" type="submit" ng-click="ctrl.updateEntry(entry)">
+			<button class="ourButton" type="submit" ng-click="ctrl.updateEntry()">
 				Submit
 			</button>
 

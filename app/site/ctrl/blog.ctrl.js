@@ -33,15 +33,15 @@ BlogCtrl.prototype.addEntry = function(){
 
 BlogCtrl.prototype.getEntries = function(){
 	var ctrl = this;
-
 	this.BlogSrv.getEntries().then(function(res){
 		ctrl.blogPosts = res;
 	});
 }
 
-BlogCtrl.prototype.updateEntry = function(){
+BlogCtrl.prototype.updateEntry = function(entry){
 	var ctrl = this;
-	ctrl.BlogSrv.updateEntry(ctrl.id);
+	ctrl.state.go('main.update',{id:entry._id})
+	// ctrl.BlogSrv.updateEntry(ctrl.id);
 }
 
 BlogCtrl.prototype.delete = function(id){

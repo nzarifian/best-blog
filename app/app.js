@@ -1,8 +1,6 @@
 'use strict';
 
-var app = angular.module('blogApp',[
-  'ui.router',
-  ]);
+var app = angular.module('blogApp', ['ui.router']);
 
 app.config(function($stateProvider, $httpProvider, $urlRouterProvider) {
 
@@ -21,26 +19,39 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider) {
     })
     .state ('main.home', {
       url:'home',
-      templateUrl: 'site/partials/main-home.html'
+      templateUrl: 'site/partials/main-home.html',
+      controller: 'BlogCtrl as ctrl',
+      resolve:{
+        blogs: function(BlogSrv){
+          return BlogSrv.getEntries();
+        }
+      }
     })   
     
 
-    // .state ('main.entry', {
-    //   url:'/:id',
-    //   templateUrl:'/site/partials/main-entries.html',
-    //   controller: 'BlogCtrl as ctrl',
-    //   resolve:{
-    //     shops: function(BlogSrv,$stateParams){
-    //       return BlogSrv.getOne($stateParams.id);
-    //     }
-    //   }
-    // })
+    .state ('main.entry', {
+      url:'/:id',
+      templateUrl:'/site/partials/main-entries.html',
+      controller: 'detailsCtrl as ctrl'
+    })
 
     .state ('main.aboutme', {
     url:'aboutme',
     templateUrl:'site/partials/main-aboutme.html',
-    controller: 'BlogCtrl as ctrl',
+    controller: 'BlogCtrl as ctrl'
     })
+
+    .state ('main.update', {
+      url:'/update/:id',
+      templateUrl: 'site/partials/admin-edit.html',
+      controller: 'detailsCtrl as ctrl'
+      // resolve:{
+      //   blogs: function(BlogSrv){
+      //     return BlogSrv.updateEntry();
+      //   }
+      // }
+    })
+
 
   //   .state ('auth', {
   //   url:'auth',
@@ -53,26 +64,16 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider) {
   //   }
   // })
 
-    // .state ('admin', {
-    // url:'admin',
-    // templateUrl: 'site/partials/admin-dash.html',
-    // controller: 'AuthCtrl as ctrl',
-    // resolve:{
-    //  blogs: function(BlogSrv){
+    //  .state ('main.admin', {
+    //   url:'admin',
+    //  templateUrl: 'site/partials/admin-dash.html',
+    //  controller: 'AuthCtrl as ctrl',
+    //  resolve:{
+    //   blogs: function(BlogSrv){
     //   return BlogSrv.getEntries();
     //     }
     //   }
     // })
-
-    // .state ('update', {
-    //   url:'/update',
-    //   templateUrl: 'site/partials/admin-edit.html'
-    //   controller: 'BlogCtrl as ctrl'
-    //   resolve:{
-    //     blogs: function(BlogSrv){
-    //       return BlogSrv.updateEntry();
-    //     }
-    //   }
-    // })
-
 });
+
+

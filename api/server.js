@@ -60,6 +60,7 @@ app.post("/api/entries", function (request, res) {
 		{
 			title: request.body.title,
 			content: request.body.content,
+			image: request.body.image,
 			author: request.body.author,
 			tags: request.body.tags,
 
@@ -88,14 +89,15 @@ app.get('/api/entries/:id', function(req, res){
 });
 
 //update entry
-app.put('/:id', function(req,res){
+app.put('/api/entries/:id', function(req,res){
 	var update = req.body;
 	var query = {'_id': req.params.id};
-	entry.update(query,update,{}, function(err,shop){
+	entry.update(query,update, function(err,shop){
 		if (err){
 			console.log(err);
 		} else {
 			console.log(shop);
+			res.json(shop);
 		}
 	});
 });

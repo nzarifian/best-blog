@@ -34,10 +34,10 @@
 		{{entry.created_at | date : format : short}}
 
 		<!-- <a href="edit">EDIT</a> -->
-		<a href="edit" class="btn btn-primary btn-xs active" role="button">EDIT</a>
-
+		<!-- <a href="update" class="btn btn-primary btn-xs active" role="button">EDIT</a>
+ -->
 		<!-- EDIT BUTTON TO RUN FUNCTION -->
-		<!-- <button class="update" type="submit" ng-click="ctrl.updateEntry(entry)">Edit</button> -->
+		<button class="update" type="submit" ng-click="ctrl.updateEntry(entry)">Edit</button>
 		
 		<button type="submit" ng-click="ctrl.delete(entry._id)">Delete</button>
 	</div>
