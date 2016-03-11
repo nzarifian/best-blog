@@ -64,4 +64,15 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider) {
     //   }
     // })
 
+    // .state ('update', {
+    //   url:'/update',
+    //   templateUrl: 'site/partials/admin-edit.html'
+    //   controller: 'BlogCtrl as ctrl'
+    //   resolve:{
+    //     blogs: function(BlogSrv){
+    //       return BlogSrv.updateEntry();
+    //     }
+    //   }
+    // })
+
 });
