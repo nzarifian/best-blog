@@ -2,8 +2,6 @@
 
 <div class="jumbotron"></div>
 
-
-
 <h1>HELLO WORLD</h1>
 
 
@@ -35,9 +33,26 @@
 		<!-- <img ng-src="{{entry.image}}"> -->
 		{{entry.created_at | date : format : short}}
 
-		<button type="submit" ng-repeat="{{entry.id}}" ng-click="ctrl.delete()">Delete</button>
+		<button class="update" type="submit" ng-click="ctrl.updateEntry(entry)">Edit</button>
+		<button type="submit" ng-click="ctrl.delete(entry._id)">Delete</button>
 	</div>
 </section>
+
+<footer class="row" style="margin-right:0">
+	<div class="col-xs-12 col-sm-6">
+		<ul>
+			<li>about me</li>
+			<li>follow more of my journey...</li>
+		</ul>
+	</div>
+
+	<div class="col-xs-12 col-sm-6">
+			<i class="fa fa-instagram" style="font-size:20px"></i>
+			<i class="fa fa-twitter" style="font-size:20px"></i>
+			<i class="fa fa-facebook" style="font-size:20px"></i>
+	</div>
+</footer>
+
 
 
 

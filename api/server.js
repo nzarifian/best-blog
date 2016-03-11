@@ -77,7 +77,7 @@ app.post("/api/entries", function (request, res) {
 });
 
 // find blog post by id
-app.get('/entries/:id', function(req, res){
+app.get('/api/entries/:id', function(req, res){
 	entry.find({"_id": req.params.id}, function(err, entry){
 		if (err){
 			console.log(err);	
@@ -87,8 +87,21 @@ app.get('/entries/:id', function(req, res){
 	});
 });
 
+//update entry
+app.put('/:id', function(req,res){
+	var update = req.body;
+	var query = {'_id': req.params.id};
+	entry.update(query,update,{}, function(err,shop){
+		if (err){
+			console.log(err);
+		} else {
+			console.log(shop);
+		}
+	});
+});
+
 // delete entry
-app.delete('/entries/:id', function(req, res){
+app.delete('/api/entries/:id', function(req, res){
 	entry.find({'_id': req.params.id}, function(err, entry){
 		console.log('delete');
 		if(err){
@@ -98,6 +111,7 @@ app.delete('/entries/:id', function(req, res){
 				if(err){
 					console.log(err);
 				} else {
+					res.json('deleted');
 					console.log(entry);
 				}
 			});

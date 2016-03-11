@@ -1,1 +1,32 @@
 <!-- admin create new post -->
+
+<div class="inventory col-xs-offset-1 col-xs-10">
+	<h3>add entry</h3>
+	<br>
+	<br>
+	<article class="entry-frm">
+		<form name="add-entry">
+
+			<div>
+				<h4>title</h4>
+				<input class="inputform" type="text" name="title" ng-model="ctrl.title" required>
+			</div>
+			<div>
+				<h4>image</h4>
+				<input class="inputform" type="text" name="image" ng-model="ctrl.image" required>
+			</div>
+			<div>
+				<h4>content</h4>
+				<textarea class="inputform" type="text" name="content" ng-model="ctrl.content" required></textarea>
+			</div>
+			<div>
+				<h4>tags</h4>
+				<input class="inputform" type="number" name="tags" ng-model="ctrl.tags" required>
+			</div>
+			<div>
+			<br><br>
+				<button class="ourButton" type="submit" ng-click="ctrl.addEntry()">add to blog</button>
+			</div>
+		</form>
+	</article>
+</div>

@@ -35,34 +35,35 @@ BlogService.prototype.getEntries = function() {
 // 	})
 // }
 
-// BlogService.prototype.updateEntry = function(entry, id){
-// 	var _this = this;
-// 	this.api.request('/main/'+id,entry,'PUT')
-// 	.then(function(res){
-// 		console.log(res);
-// 		if(res.status === 200){
-// 			_this.updateList(entry, id);
-// 			_this.$state.go('main');
-// 		}
-// 	})
-// }
-
-BlogService.prototype.delete = function(entry, id){
+BlogService.prototype.updateEntry = function(entry, id){
 	var _this = this;
-	this.api.request('/main/'+id,entry,'DEL')
+	this.api.request('/entries/'+id,entry,'PUT')
 	.then(function(res){
 		console.log(res);
 		if(res.status === 200){
-			this.delete(id);
+			_this.updateList(entry, id);
+			_this.$state.go('main');
 		}
 	})
 }
 
-BlogService.prototype.removeEntry = function(id){
-    for(index in this.entries){
-        if(this.entry[index].id == id){
-            delete this.entries[index];
-
-        }
-    }
+BlogService.prototype.delete = function(id){
+	var _this = this;
+	return this.api.request('/entries/'+id,{},'DEL')
+	.then(function(res){
+		console.log(res);
+		if(res.status === 200){
+			return 'deleted';
+			//this.removeEntry(id);
+		}
+	})
 }
+
+// BlogService.prototype.removeEntry = function(id){
+//     for(index in this.entries){
+//         if(this.entry[index].id == id){
+//             delete this.entries[index];
+
+//         }
+//     }
+// }

@@ -6,27 +6,60 @@ var app = angular.module('blogApp',[
 
 app.config(function($stateProvider, $httpProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise('/main');
+  $urlRouterProvider.otherwise('/home');
 
   $stateProvider
     .state ('main', {
-      url:'/main',
-      templateUrl: 'site/partials/main-home.html',
+      url:'/',
+      templateUrl: 'site/partials/main-nav.html',
       controller: 'BlogCtrl as ctrl',
       resolve:{
       	blogs: function(BlogSrv){
           return BlogSrv.getEntries();
         }
       }
-    });
+    })
+    .state ('main.home', {
+      url:'home',
+      templateUrl: 'site/partials/main-home.html'
+    })   
     
-    // .state ('entry', {
+
+    // .state ('main.entry', {
     //   url:'/:id',
     //   templateUrl:'/site/partials/main-entries.html',
-    //   controller: 'ShopCtrl as ctrl',
+    //   controller: 'BlogCtrl as ctrl',
     //   resolve:{
-    //     shops: function(shopSrv,$stateParams){
-    //       return shopSrv.getOne($stateParams.shopId);
+    //     shops: function(BlogSrv,$stateParams){
+    //       return BlogSrv.getOne($stateParams.id);
+    //     }
+    //   }
+    // })
+
+    .state ('main.aboutme', {
+    url:'aboutme',
+    templateUrl:'site/partials/main-aboutme.html',
+    controller: 'BlogCtrl as ctrl',
+    })
+
+  //   .state ('auth', {
+  //   url:'auth',
+  //   templateUrl: 'site/partials/admin-login.html',
+  //   controller: 'AuthCtrl as ctrl',
+  //   resolve:{
+  //     blogs: function(BlogSrv){
+  //     return BlogSrv.getEntries();
+  //     }
+  //   }
+  // })
+
+    // .state ('admin', {
+    // url:'admin',
+    // templateUrl: 'site/partials/admin-dash.html',
+    // controller: 'AuthCtrl as ctrl',
+    // resolve:{
+    //  blogs: function(BlogSrv){
+    //   return BlogSrv.getEntries();
     //     }
     //   }
     // })

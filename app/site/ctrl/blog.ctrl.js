@@ -39,8 +39,16 @@ BlogCtrl.prototype.getEntries = function(){
 	});
 }
 
-BlogCtrl.prototype.delete = function(){
+BlogCtrl.prototype.updateEntry = function(){
 	var ctrl = this;
-	ctrl.BlogSrv.delete(ctrl.entry, ctrl.entry._id);
+	ctrl.BlogSrv.updateEntry(ctrl.id);
+}
+
+BlogCtrl.prototype.delete = function(id){
+	var ctrl = this;
+	ctrl.BlogSrv.delete(id)
+	.then(function(res){
+		ctrl.getEntries();
+	});
 }
 
