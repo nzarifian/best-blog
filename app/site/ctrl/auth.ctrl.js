@@ -15,3 +15,7 @@ function AuthCtrl($state, api){
     //     ctrl.$state.go('auth');
     }    
 }
+
+AuthCtrl.prototype.login = function(first_argument) {
+	if (ctrl.email == "admin@blog.com"&& ctrl.password =="brainstation")
+};

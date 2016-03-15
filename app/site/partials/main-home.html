@@ -4,10 +4,11 @@
 
 <h1>welcome to my journey...</h1>
 
-
 <h3>
 <section class="entries">
-	<div class="col-md-4" ng-repeat="entry in ctrl.blogPosts">
+	<div class="col-md-4" ng-repeat="entry in ctrl.blogPosts
+						| limitTo:ctrl.entriesPerPage:ctrl.curPage * ctrl.entriesPerPage
+						| filter: search">
 		<!-- <a ng-click="ctrl.toBlog(entry._id)">
 			{{entry.title}}<br>
 		</a> -->
@@ -19,6 +20,32 @@
 	</div>
 </section>
 </h3>
+
+
+
+<div>
+  <!--   <button class="btn btn-default" 
+            ng-click="ctrl.curPage = ctrl.curPage - 1"
+            ng-disabled="ctrl.curPage == 0">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+    </button> -->
+
+    <button ng-click="ctrl.curPage = ctrl.curPage - 1"
+       ng-disabled="ctrl.curPage == 0">
+		<i class="fa fa-chevron-circle-left"></i>
+	</button>
+    
+ 
+    page {{ctrl.curPage + 1}} of {{ctrl.numPages}}
+    
+    
+    <button ng-click="ctrl.curPage = ctrl.curPage + 1"
+       		ng-disabled="ctrl.curPage == ctrl.numPages - 1">
+       	<i class="fa fa-chevron-circle-right"></i>
+    </button>
+</div>
+
+
 
 
 <br>

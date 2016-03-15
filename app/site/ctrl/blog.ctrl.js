@@ -3,12 +3,16 @@ app.controller('BlogCtrl', BlogCtrl);
 
 
 function BlogCtrl($state,api,blogs,BlogSrv){
+	var ctrl = this
 	// dependencies
-	this.api=api;
-	this.state = $state;
-	this.blogPosts = blogs;
-	this.BlogSrv= BlogSrv;
+	ctrl.api=api;
+	ctrl.state = $state;
+	ctrl.blogPosts = blogs;
+	ctrl.BlogSrv= BlogSrv;
 	console.log(this.blogPosts);
+	ctrl.curPage = 0;
+	ctrl.entriesPerPage = 12;
+	ctrl.numPages = Math.ceil(ctrl.blogPosts.length / ctrl.entriesPerPage);
 
 
 }
@@ -16,7 +20,10 @@ function BlogCtrl($state,api,blogs,BlogSrv){
 BlogCtrl.prototype.toBlog = function(id) {
 	var ctrl = this;
 	ctrl.state.go('main.entry',{id:id});
+
+
 };
+
 BlogCtrl.prototype.addEntry = function(){
 	var ctrl = this;
 
