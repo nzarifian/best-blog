@@ -10,9 +10,44 @@
 
 		<ul>
 			<li><a ui-sref="main">home</a></li>
-			<li><a ui-sref="admin.posts">posts</a></li>
 			<li><a ng-click="ctrl.logout()">log out</a></li>
 		</ul>
 
 		<div ui-view=""></div>
 </div>
+
+<div class="align-shopmain row title">
+
+<form name="add-entry">
+  title:<br>
+  <input type="text" name="title" ng-model="ctrl.title" required><br>
+  image:<br>
+  <input type="text" name="image" ng-model="ctrl.image" required><br>
+  content:<br>
+  <input type="text" name="content" ng-model="ctrl.content" required><br>
+  author:<br>
+  <input type="text" name="author" ng-model="ctrl.author" required><br>
+  tags:<br>
+  <input type="text" name="tags" ng-model="ctrl.tags" required><br>
+</form>
+<button type="submit" ng-click="ctrl.addEntry()">Submit</button>
+
+<section>
+	<h2>List of All Posts</h2>
+	<div class="all entries" ng-repeat="entry in ctrl.blogPosts">
+		<a ng-click="ctrl.toBlog(entry._id)">
+			{{entry.title}}<br>
+		</a>
+		{{entry.content}}<br>
+		{{entry.author}}<br>
+		{{entry.tags}}<br>
+		<img ng-src="./../../assets/img/{{entry.image}}">
+		{{entry.created_at | date : format : short}}
+
+		<!-- EDIT BUTTON TO RUN FUNCTION -->
+		<button class="update" type="submit" ng-click="ctrl.updateEntry(entry)">Edit</button>
+		
+		<button type="submit" ng-click="ctrl.delete(entry._id)">Delete</button>
+	</div>
+</div>
+</section>

@@ -30,9 +30,14 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider) {
     
 
     .state ('main.entry', {
-      url:'/:id',
+      url:'entry/:id',
       templateUrl:'/site/partials/main-entries.html',
-      controller: 'detailsCtrl as ctrl'
+      controller: 'detailsCtrl as ctrl',
+      resolve:{
+        shops: function(BlogSrv,$stateParams){
+          return BlogSrv.getOne($stateParams.id);
+        }
+      }
     })
 
     .state ('main.aboutme', {
@@ -44,36 +49,36 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider) {
     .state ('main.update', {
       url:'/update/:id',
       templateUrl: 'site/partials/admin-edit.html',
-      controller: 'detailsCtrl as ctrl'
-      // resolve:{
-      //   blogs: function(BlogSrv){
-      //     return BlogSrv.updateEntry();
-      //   }
-      // }
+      controller: 'detailsCtrl as ctrl',
+      resolve:{
+        blogs: function(BlogSrv){
+          return BlogSrv.updateEntry();
+        }
+      }
     })
 
 
-  //   .state ('auth', {
-  //   url:'auth',
-  //   templateUrl: 'site/partials/admin-login.html',
-  //   controller: 'AuthCtrl as ctrl',
-  //   resolve:{
-  //     blogs: function(BlogSrv){
-  //     return BlogSrv.getEntries();
-  //     }
-  //   }
-  // })
-
-    //  .state ('main.admin', {
-    //   url:'admin',
-    //  templateUrl: 'site/partials/admin-dash.html',
-    //  controller: 'AuthCtrl as ctrl',
-    //  resolve:{
+    .state ('auth', {
+    url:'/auth',
+    templateUrl: 'site/partials/admin-login.html'
+    // controller: 'AuthCtrl as ctrl',
+    // resolve:{
     //   blogs: function(BlogSrv){
     //   return BlogSrv.getEntries();
-    //     }
     //   }
-    // })
+    // }
+  })
+
+     .state ('admin', {
+      url:'/admin',
+     templateUrl: 'site/partials/admin-dash.html',
+     controller: 'BlogCtrl as ctrl',
+     resolve:{
+      blogs: function(BlogSrv){
+      return BlogSrv.getEntries();
+        }
+      }
+    })
 });
 
 

@@ -2,7 +2,8 @@
 <div class="align-shopmain row title">
 	<div class="searchbar icon col-xs-2">
 		<i class="fa fa-search"></i>
-		<input type="text" class="searchform" placeholder='search' ng-model="search.title">
+		<!-- <input type="text" class="searchform" placeholder='search' ng-model="search.title"> -->
+		<input type="text" class="searchform" placeholder="search" ng-repeat="title in ctrl.entry | filter:search">
 	</div>
 
 	<div class="col-xs-4 col-xs-offset-2">

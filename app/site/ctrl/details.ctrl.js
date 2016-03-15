@@ -25,3 +25,4 @@ detailsCtrl.prototype.getEntries = function(){
 		ctrl.blogPosts = res;
 	});
 }
+

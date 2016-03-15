@@ -13,7 +13,10 @@ function BlogCtrl($state,api,blogs,BlogSrv){
 
 }
 
-
+BlogCtrl.prototype.toBlog = function(id) {
+	var ctrl = this;
+	ctrl.state.go('main.entry',{id:id});
+};
 BlogCtrl.prototype.addEntry = function(){
 	var ctrl = this;
 

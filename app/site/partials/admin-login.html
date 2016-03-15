@@ -2,24 +2,20 @@
 
 <div class="top">
 <div class="align-shopmain row title">
-    <div class="searchbar icon col-xs-2">
-        <i class="fa fa-search"></i>
-        <input type="text" class="searchform" placeholder='search' ng-model="search.name">
-    </div>
+    
 
     <div class="col-xs-4 col-xs-offset-2">
         <h1>...on the road</h1>
     </div>
 
-    <i class="col-xs-1 col-xs-offset-2 fa fa-shopping-cart icon" style="text-align:right" ui-sref="shop.cart"></i>
 
     <i class="col-xs-1 fa fa-user icon" style="text-align:right" ui-sref="auth"></i>
 </div>
         <ul>
-            <li><a ui-sref="main">home</a></li>
+            <li><a ui-sref="main.home">home</a></li>
         </ul>
 
-
+<div class="col-xs-4 col-xs-offset-2">
     <h3>admin login</h3>
     <br><br>
     <div class="row">
@@ -35,5 +31,5 @@
 
             <input type="submit" value="Login" class="ourButton" ng-click="ctrl.login()"/>
       </form>
-
+</div>
     </div>
