@@ -42,7 +42,7 @@ BlogService.prototype.updateEntry = function(entry, id){
 		console.log(res);
 		if(res.status === 200){
 			// _this.updateList(entry, id);
-			_this.$state.go('main.home');
+			_this.$state.go('admin');
 		}
 	})
 }

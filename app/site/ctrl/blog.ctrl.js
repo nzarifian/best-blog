@@ -35,6 +35,7 @@ BlogCtrl.prototype.addEntry = function(){
 		tags:ctrl.tags
 	}
 	console.log(payload);
+	alert("entry added!");
 
 	this.BlogSrv.addEntry(payload).then(function(res){
 		ctrl.getEntries();

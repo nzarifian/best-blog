@@ -60,11 +60,11 @@ app.config(function($stateProvider, $httpProvider, $urlRouterProvider) {
 
     .state ('auth', {
     url:'/auth',
-    templateUrl: 'site/partials/admin-login.html'
-    // controller: 'AuthCtrl as ctrl',
+    templateUrl: 'site/partials/admin-login.html',
+    controller: 'AuthCtrl as ctrl'
     // resolve:{
-    //   blogs: function(BlogSrv){
-    //   return BlogSrv.getEntries();
+    //   blogs: function(authSrv){
+    //     return authSrv.login();
     //   }
     // }
   })

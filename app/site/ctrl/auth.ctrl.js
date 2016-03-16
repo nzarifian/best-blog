@@ -6,16 +6,16 @@ function AuthCtrl($state, api){
     var ctrl = this;
     ctrl.$state = $state;
     ctrl.api = api;
-    // ctrl.password;
-    // ctrl.email;
-    // ctrl.auth_button = 'Continue';
+
+}    
 
 
-    // if(localStorage.authToken){
-    //     ctrl.$state.go('auth');
-    }    
-}
-
-AuthCtrl.prototype.login = function(first_argument) {
-	if (ctrl.email == "admin@blog.com"&& ctrl.password =="brainstation")
+AuthCtrl.prototype.login = function() {
+	var ctrl = this;
+	if (ctrl.email == "admin@blog.com" && ctrl.password =="brainstation"){
+		ctrl.$state.go('admin');
+	} else {
+		alert("username/password incorrect");
+	}
 };
+

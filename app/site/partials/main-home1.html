@@ -4,32 +4,25 @@
 
 <h1>welcome to my journey...</h1>
 
-
-
-
-
-<div class="col-md-4" ng-repeat="entry in ctrl.blogPosts
+<h3>
+<section class="row entries">
+	<div class="col-md-4" ng-repeat="entry in ctrl.blogPosts
 						| limitTo:ctrl.entriesPerPage:ctrl.curPage * ctrl.entriesPerPage
 						| filter: search">
-	<ul class="photo-grid">
-		<li>
-			<a ng-click="ctrl.toBlog(entry._id)">
-				<figure>
-							<img ng-src="./../../assets/img/{{entry.image}}">
-							<figcaption><p>{{entry.title}}</p></figcaption>
-			</a>
-		<li>
-		
+		<!-- <a ng-click="ctrl.toBlog(entry._id)">
+			{{entry.title}}<br>
+		</a> -->
 
-		
-</div>
+		<img ng-src="./../../assets/img/{{entry.image}}">
+		<a ng-click="ctrl.toBlog(entry._id)">
+			{{entry.title}}<br><br>
+		</a>
+	</div>
+</section>
+</h3>
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <div>
 <!--     <button class="btn btn-default" 
             ng-click="ctrl.curPage = ctrl.curPage - 1"
@@ -74,7 +67,3 @@
 			<i class="fa fa-facebook" style="font-size:20px"></i></a>
 	</div>
 </footer>
-
-
-
-

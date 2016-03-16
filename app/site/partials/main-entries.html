@@ -1,12 +1,18 @@
 <!-- each individual blog post -->
 
 
+
+
+
 <h2>{{ctrl.blog.title}}</h2><br>
 <img ng-src="./../../assets/img/{{ctrl.blog.image}}"><br>
-{{ctrl.blog.created_at | date : format : short}}<br>
-<h4>{{ctrl.blog.author}}</h4><br>
-<h3>{{ctrl.blog.content}}</h3><br>
-<h4>{{ctrl.blog.tags}}</h4><br>
+
+<div class="blogentry">
+	<h4>{{ctrl.blog.created_at | date : format : short}}</h4><br>
+	<h3>{{ctrl.blog.content}}</h3><br>
+	<h4>{{ctrl.blog.author}}</h4><br>
+	<h4>{{ctrl.blog.tags}}</h4><br>
+</div>
 
 <br>
 <br>
@@ -15,4 +21,7 @@
 <br>
 <br>
 <br>
-<a ui-sref="main.home">Back</button>
+<i class="col-xs-1 fa fa-arrow-left" ui-sref="main.home"></i>
+<br>
+<br>
+<br>

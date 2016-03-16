@@ -9,8 +9,8 @@
 </div>
 
 		<ul>
-			<li><a ui-sref="main">home</a></li>
-			<li><a ng-click="ctrl.logout()">log out</a></li>
+			<li><a ui-sref="main.home">home</a></li>
+			<li><a ui-sref="main.home">log out</a></li>
 		</ul>
 
 		<div ui-view=""></div>
@@ -24,7 +24,8 @@
   image:<br>
   <input type="text" name="image" ng-model="ctrl.image" required><br>
   content:<br>
-  <input type="text" name="content" ng-model="ctrl.content" required><br>
+  <textarea name="content" ng-model="ctrl.content" required ></textarea>
+	<br>
   author:<br>
   <input type="text" name="author" ng-model="ctrl.author" required><br>
   tags:<br>
@@ -33,6 +34,7 @@
 <button type="submit" ng-click="ctrl.addEntry()">Submit</button>
 
 <section>
+<div class="adminposts">
 	<h2>List of All Posts</h2>
 	<div class="all entries" ng-repeat="entry in ctrl.blogPosts">
 		<a ng-click="ctrl.toBlog(entry._id)">
@@ -48,6 +50,8 @@
 		<button class="update" type="submit" ng-click="ctrl.updateEntry(entry)">Edit</button>
 		
 		<button type="submit" ng-click="ctrl.delete(entry._id)">Delete</button>
+		<hr>
+	</div>
 	</div>
 </div>
 </section>
