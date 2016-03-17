@@ -115,3 +115,11 @@
 	-webkit-transform: translateY(40px);
 	transform: translateY(40px);
 }
+
+.btn.pagination {
+	background: #fff;
+	border:none;
+}
+.fa {
+	margin:0!important;
+}

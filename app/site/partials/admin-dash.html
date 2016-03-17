@@ -37,9 +37,9 @@
 <div class="adminposts">
 	<h2>List of All Posts</h2>
 	<div class="all entries" ng-repeat="entry in ctrl.blogPosts">
-		<a ng-click="ctrl.toBlog(entry._id)">
+	<h4>	<a ng-click="ctrl.toBlog(entry._id)">
 			{{entry.title}}<br>
-		</a>
+		</a></h4>
 		{{entry.content}}<br>
 		{{entry.author}}<br>
 		{{entry.tags}}<br>

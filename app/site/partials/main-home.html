@@ -37,18 +37,18 @@
       <i class="glyphicon glyphicon-chevron-left"></i>
     </button> -->
 
-    <button ng-click="ctrl.curPage = ctrl.curPage - 1"
+    <button class="btn pagination" ng-click="ctrl.curPage = ctrl.curPage - 1"
        ng-disabled="ctrl.curPage == 0">
-		<i class="fa fa-chevron-circle-left"></i>
+		<i class="fa fa-arrow-left"></i>
 	</button>
     
  
     page {{ctrl.curPage + 1}} of {{ctrl.numPages}}
     
     
-    <button ng-click="ctrl.curPage = ctrl.curPage + 1"
+    <button class="btn pagination" ng-click="ctrl.curPage = ctrl.curPage + 1"
        		ng-disabled="ctrl.curPage == ctrl.numPages - 1">
-       	<i class="fa fa-chevron-circle-right"></i>
+       	<i class="fa fa-arrow-right"></i>
     </button>
 </div>
 
