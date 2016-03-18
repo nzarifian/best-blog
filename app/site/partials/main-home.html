@@ -10,19 +10,40 @@
 
 <div class="col-md-4" ng-repeat="entry in ctrl.blogPosts
 						| limitTo:ctrl.entriesPerPage:ctrl.curPage * ctrl.entriesPerPage
-						| filter: search">
+						| filter: search track by $index">
 	<ul class="photo-grid">
-		<li>
-			<a ng-click="ctrl.toBlog(entry._id)">
+		<li data-toggle="modal" data-target="#modal{{$index}}">
+			<a>
 				<figure>
-							<img ng-src="./../../assets/img/{{entry.image}}">
-							<figcaption><p>{{entry.title}}</p></figcaption>
+					<img ng-src="./../../assets/img/{{entry.image}}">
+					<figcaption><p>{{entry.title}}</p></figcaption>
+				</figure>
 			</a>
-		<li>
-		
+		</li>
+	</ul>
 
-		
+	<div class="modal fade" id="modal{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{$index}}">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel{{$index}}">{{entry.title}}</h4>
+	      </div>
+	      <div class="modal-body">
+				<h3>{{entry.created_at | date : format : short}}</h3><br>
+				<h3>{{entry.content}}</h3><br>
+				<h4>{{entry.author}}</h4><br>
+				<h4>{{entry.tags}}</h4><br>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>		
 </div>
+
+
 
 
 <br>
